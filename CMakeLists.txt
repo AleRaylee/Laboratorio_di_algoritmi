@@ -3,4 +3,4 @@ project(Laboratorio_di_algoritmi)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Laboratorio_di_algoritmi main.cpp)
+add_executable(Laboratorio_di_algoritmi main.cpp Graph.cpp Graph.h)
