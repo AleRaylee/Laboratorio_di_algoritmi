@@ -12,14 +12,15 @@ using namespace std;
 class Graph {
 private:
 
-    int dimension;
+    int nodes;
     //crea un lista di adiacenza tramite pair
     vector<vector<pair<int,int>>> adj;
+    int edge;
 
 public:
-    Graph(int  dimension) {
-        this->dimension = dimension+1;
-        adj.resize(dimension+1);
+    Graph(int  nodes) {
+        this->nodes = nodes;
+        adj.resize(nodes+1);
     }
 
     void addEdge(int a,int b,int const weight){
@@ -29,17 +30,18 @@ public:
     }
 
     void printAdjacencyList(){
-        for(int i = 1; i < this->dimension; ++i){
-            cout<<"Vertix: "<<i<<endl;
+        for(int i = 1; i < adj.size(); ++i){
+            cout<<"Vertex: "<<i<<endl;
             for(const auto& it : adj[i]){
                 cout<<" ->"<< it.first<<" weight:  "<<it.second<<endl;
             }
             cout<<endl;
+
         }
     }
 
     ~Graph() {
-        for (int i = 1; i < dimension; ++i) {
+        for (int i = 1; i < adj.size(); ++i) {
             adj[i].clear(); // Svuota il vettore di adiacenza di ogni vertice
         }
         adj.clear(); // Svuota il vettore di vettori di adiacenza
